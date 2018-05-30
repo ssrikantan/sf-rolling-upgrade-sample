@@ -7,11 +7,10 @@ This sample demonstrates the following features of Azure Service Fabric
 * Perform Application Rolling upgrades
 
 The sample comprises of 2 Applications: (included in this repo)
-	- A Web Application (sfaspnetsample) calls a REST API (sfwebapi) - both are built using ASP.NET Core 2.0 and packaged as Docker Containers for Linux, using Visual Studio 2017. 
-	- The REST API has a method that returns the hostname on which it is running. The Web Application does nothing but print the host name returned by the REST API and the host name that itself runs on
-	- The Web Application reads the Service DNS name of the REST API from its appsettings.json file, and uses Service Fabric DNS Service to resolve it at run time.
-	- The Web Application implements Docker Health Check and uses a retry policy with timeouts
-	- The Web Application runs on Host port 80 and the REST API on Host port 5002
+* A Web Application (sfaspnetsample) calls a REST API (sfwebapi) - both are built using ASP.NET Core 2.0 and packaged as Docker Containers for Linux, using Visual Studio 2017. 
+* The REST API has a method that returns the hostname on which it is running. The Web Application does nothing but print the host name returned by the REST API and the host name that itself runs on
+* The Web Application reads the Service DNS name of the REST API from its appsettings.json file, and uses Service Fabric DNS Service to resolve it at run time.
+* The Web Application runs on Host port 80 and the REST API on Host port 5002
 	
 The screenshot below shows the Docker compose file with the Halthcheck configuration used, and the entries in the appsettings.json file of the Web Application where the Service name for the REST API is read, for Service discovery.
 ![GitHub Logo](/images/dockerhealth.png)
