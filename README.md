@@ -63,15 +63,20 @@ install.sh
 ![GitHub Logo](/images/webapp_deployed.png)
 
 # Perform Application Rolling Upgrade to Version02
-1. Use the right package folder to run the Rolling upgrade from
+1. Use the right package folder to run the Rolling upgrade from.
+
 rename folder *sf2tierdemoappVersion2* to *sf2tierdemoapp* 
 
 2. Upload the package and provision the Application type in SF
+
 sfctl application upload --path ~/source/repos/sf2tierclusterapp/sf2tierdemoapp/sf2tierdemoapp
+
 sfctl application provision --application-type-build-path sf2tierdemoapp --debug
- (optional, for cleanup - sfctl store delete --content-path sf2tierdemoapp)
+
+(optional, for cleanup - sfctl store delete --content-path sf2tierdemoapp)
 
 3. Call the Rolling upgrade using the sfctl commands
+
 sfctl application upgrade --application-name fabric:/sf2tierdemoapp  --application-version Version2.0 --parameters "{}"  --mode Monitored  --health-check-wait-duration  PT0H03M0S --health-check-retry-timeout PT0H01M0S --warning-as-error --failure-action rollback
 
 --warning-as-error -> ensures that when Docker health check returns 'unhealthy', setting this parameter results in the Health of the Service Fabric Application as 'Unhealthy' and shows up as 'error'.
@@ -87,15 +92,20 @@ The screenshot below shows how the Docker Health status shows up on the Service 
 ![GitHub Logo](/images/sfexplorerstate1.png)
 
 # Perform Application Rolling Upgrade to Version03
-1. Use the right package folder to run the Rolling upgrade from
+1. Use the right package folder to run the Rolling upgrade from.
+
 rename folder *sf2tierdemoappVersion3* to *sf2tierdemoapp* 
 
 2. Upload the package and provision the Application type in SF
+
 sfctl application upload --path ~/source/repos/sf2tierclusterapp/sf2tierdemoapp/sf2tierdemoapp
+
 sfctl application provision --application-type-build-path sf2tierdemoapp --debug
- (optional, for cleanup - sfctl store delete --content-path sf2tierdemoapp)
+
+(optional, for cleanup - sfctl store delete --content-path sf2tierdemoapp)
 
 3. Call the Rolling upgrade using the sfctl commands
+
 sfctl application upgrade --application-name fabric:/sf2tierdemoapp  --application-version Version3.0 --parameters "{}"  --mode Monitored  --health-check-wait-duration  PT0H02M0S --health-check-retry-timeout PT0H01M0S --warning-as-error --failure-action rollback
 
 The SF Application Health continues to show up as 'unhealthy', since the Start up thread in the Web application is set to sleep for an inordinate duration. Once the wait duration elapses, the Upgrade process detects that the upgrade is a failure, and triggers a rollback to the previous versionl which is Version02.
