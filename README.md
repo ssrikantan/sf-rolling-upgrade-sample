@@ -74,8 +74,8 @@ sfctl application provision --application-type-build-path sf2tierdemoapp --debug
 3. Call the Rolling upgrade using the sfctl commands
 sfctl application upgrade --application-name fabric:/sf2tierdemoapp  --application-version Version2.0 --parameters "{}"  --mode Monitored  --health-check-wait-duration  PT0H03M0S --health-check-retry-timeout PT0H01M0S --warning-as-error --failure-action rollback
 
---warning-as-error -> ensures that when Docker health check returns 'unhealthy', setting this parameter results in the Health of the Service Fabric Application as 'Unhealthy' and shows up as 'error'
---health-check-wait-duration  -> The upgrade process waits for the duration specified here after the package is deployed. 
+* --warning-as-error -> ensures that when Docker health check returns 'unhealthy', setting this parameter results in the Health of the Service Fabric Application as 'Unhealthy' and shows up as 'error'
+* --health-check-wait-duration  -> The upgrade process waits for the duration specified here after the package is deployed. 
 
 Initially, the SF Application Health shows up as 'unhealthy' when the Docker Health check returns 'unhealthy'. When the Application Start up thread resumes, Docker returns a 'healthy' status, thereby the SF Application cluster status changes to 'healthy'. Once the wait duration elapses, the Upgrade process executes a Roll forward to the next Upgrade Domain. This continues till the Roll forward is completed for all the remaining Upgrade domains.
 
