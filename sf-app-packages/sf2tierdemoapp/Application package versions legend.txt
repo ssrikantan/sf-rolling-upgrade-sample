@@ -1,0 +1,4 @@
+application versions
+Version1  - basic application whcih will run when deployed, right away
+Version2  - application start is deplayed using Thread Sleep. rolling upgrade will wait for health to be positive and rolls forward after that
+Version3 - application start takes very long, results in health check failure, and roll back happens

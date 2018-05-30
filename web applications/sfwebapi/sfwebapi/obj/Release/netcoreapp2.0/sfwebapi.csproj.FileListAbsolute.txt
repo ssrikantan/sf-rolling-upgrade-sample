@@ -1,0 +1,10 @@
+C:\Users\Srikantansurface\source\repos\sfwebapi\sfwebapi\bin\Release\netcoreapp2.0\sfwebapi.deps.json
+C:\Users\Srikantansurface\source\repos\sfwebapi\sfwebapi\bin\Release\netcoreapp2.0\sfwebapi.runtimeconfig.json
+C:\Users\Srikantansurface\source\repos\sfwebapi\sfwebapi\bin\Release\netcoreapp2.0\sfwebapi.runtimeconfig.dev.json
+C:\Users\Srikantansurface\source\repos\sfwebapi\sfwebapi\bin\Release\netcoreapp2.0\sfwebapi.dll
+C:\Users\Srikantansurface\source\repos\sfwebapi\sfwebapi\bin\Release\netcoreapp2.0\sfwebapi.pdb
+C:\Users\Srikantansurface\source\repos\sfwebapi\sfwebapi\obj\Release\netcoreapp2.0\sfwebapi.csproj.CoreCompileInputs.cache
+C:\Users\Srikantansurface\source\repos\sfwebapi\sfwebapi\obj\Release\netcoreapp2.0\sfwebapi.AssemblyInfoInputs.cache
+C:\Users\Srikantansurface\source\repos\sfwebapi\sfwebapi\obj\Release\netcoreapp2.0\sfwebapi.AssemblyInfo.cs
+C:\Users\Srikantansurface\source\repos\sfwebapi\sfwebapi\obj\Release\netcoreapp2.0\sfwebapi.dll
+C:\Users\Srikantansurface\source\repos\sfwebapi\sfwebapi\obj\Release\netcoreapp2.0\sfwebapi.pdb

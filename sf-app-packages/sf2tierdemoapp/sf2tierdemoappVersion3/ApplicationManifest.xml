@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ApplicationManifest ApplicationTypeName="sf2tierdemoappType" ApplicationTypeVersion="Version3.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="sf2tierwebPkg" ServiceManifestVersion="Version3.0"/>
+	<Policies>
+  <ContainerHostPolicies CodePackageRef="Code">
+    <RepositoryCredentials AccountName="sfwebacr" Password="i=XfeE9EAL74grAEYGHtXkJjk0ltmJu3" PasswordEncrypted="false"/>
+	 <PortBinding ContainerPort="80" EndpointRef="sf2tierwebTypeEndpoint"/>
+	 <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
+  </ContainerHostPolicies>
+</Policies>
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="sf2tierapiPkg" ServiceManifestVersion="Version3.0"/>
+	<Policies>
+  <ContainerHostPolicies CodePackageRef="Code">
+    <RepositoryCredentials AccountName="sfwebacr" Password="i=XfeE9EAL74grAEYGHtXkJjk0ltmJu3" PasswordEncrypted="false"/>
+	<PortBinding ContainerPort="80" EndpointRef="sf2tierapiTypeEndpoint"/>
+	 <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
+  </ContainerHostPolicies>
+</Policies>
+  </ServiceManifestImport>
+  <DefaultServices>
+    <Service Name="sf2tierweb">
+      <StatelessService ServiceTypeName="sf2tierwebType" InstanceCount="2">
+        <SingletonPartition/>
+      </StatelessService>
+    </Service>
+    <Service Name="sf2tierapi" ServiceDnsName="sf2tier.api">
+      <StatelessService ServiceTypeName="sf2tierapiType" InstanceCount="2">
+        <SingletonPartition/>
+      </StatelessService>
+    </Service>
+  </DefaultServices>
+    <Policies>
+    <HealthPolicy ConsiderWarningAsError="true" MaxPercentUnhealthyDeployedApplications="20">
+        <DefaultServiceTypeHealthPolicy MaxPercentUnhealthyServices="0"/>
+        <ServiceTypeHealthPolicy ServiceTypeName="sf2tierwebType"  MaxPercentUnhealthyServices="0"/>
+        <ServiceTypeHealthPolicy ServiceTypeName="sf2tierapiType"  MaxPercentUnhealthyServices="20"/>
+    </HealthPolicy>
+  </Policies>
+</ApplicationManifest>

@@ -1,0 +1,11 @@
+c:\users\srikantansurface\source\repos\sfwebapi\sfwebapi\bin\Any CPU\Release\netcoreapp2.0\sfwebapi.deps.json
+c:\users\srikantansurface\source\repos\sfwebapi\sfwebapi\bin\Any CPU\Release\netcoreapp2.0\sfwebapi.runtimeconfig.json
+c:\users\srikantansurface\source\repos\sfwebapi\sfwebapi\bin\Any CPU\Release\netcoreapp2.0\sfwebapi.runtimeconfig.dev.json
+c:\users\srikantansurface\source\repos\sfwebapi\sfwebapi\bin\Any CPU\Release\netcoreapp2.0\sfwebapi.dll
+c:\users\srikantansurface\source\repos\sfwebapi\sfwebapi\bin\Any CPU\Release\netcoreapp2.0\sfwebapi.pdb
+c:\users\srikantansurface\source\repos\sfwebapi\sfwebapi\obj\Any CPU\Release\netcoreapp2.0\sfwebapi.csprojResolveAssemblyReference.cache
+c:\users\srikantansurface\source\repos\sfwebapi\sfwebapi\obj\Any CPU\Release\netcoreapp2.0\sfwebapi.csproj.CoreCompileInputs.cache
+c:\users\srikantansurface\source\repos\sfwebapi\sfwebapi\obj\Any CPU\Release\netcoreapp2.0\sfwebapi.AssemblyInfoInputs.cache
+c:\users\srikantansurface\source\repos\sfwebapi\sfwebapi\obj\Any CPU\Release\netcoreapp2.0\sfwebapi.AssemblyInfo.cs
+c:\users\srikantansurface\source\repos\sfwebapi\sfwebapi\obj\Any CPU\Release\netcoreapp2.0\sfwebapi.dll
+c:\users\srikantansurface\source\repos\sfwebapi\sfwebapi\obj\Any CPU\Release\netcoreapp2.0\sfwebapi.pdb

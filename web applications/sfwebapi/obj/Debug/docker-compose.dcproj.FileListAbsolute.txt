@@ -1,0 +1,1 @@
+c:\Users\srikantansurface\source\repos\sfwebapi\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache

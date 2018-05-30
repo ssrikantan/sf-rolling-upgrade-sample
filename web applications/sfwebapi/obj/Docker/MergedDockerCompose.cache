@@ -1,0 +1,12 @@
+services:
+  sfwebapi:
+    build:
+      context: C:\Users\Srikantansurface\source\repos\sfwebapi
+      dockerfile: sfwebapi/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: sfwebapi
+    ports:
+    - 80:80/tcp
+    - 80/tcp
+version: '3.0'

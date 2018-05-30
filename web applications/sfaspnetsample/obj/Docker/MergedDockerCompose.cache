@@ -1,0 +1,17 @@
+services:
+  sfwebapp:
+    build:
+      context: C:\Users\Srikantansurface\source\repos\sfaspnetsample
+      dockerfile: sfwebapp/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    healthcheck:
+      interval: 90s
+      retries: 2
+      test: curl --fail -s http://localhost || exit 1
+      timeout: 10s
+    image: sfwebapp
+    ports:
+    - 80:80/tcp
+    - 80/tcp
+version: '3.0'

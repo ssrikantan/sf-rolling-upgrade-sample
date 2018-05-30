@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  sfwebapp:
+    image: sfwebapp
+    build:
+      context: .
+      dockerfile: sfwebapp/Dockerfile
+    ports:
+      - "80:80"
+    healthcheck:
+      test: curl --fail -s http://localhost || exit 1
+      interval: 1m30s
+      timeout: 10s
+      retries: 2
+ 

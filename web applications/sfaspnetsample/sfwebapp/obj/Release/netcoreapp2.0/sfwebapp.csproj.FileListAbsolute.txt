@@ -1,0 +1,10 @@
+C:\Users\Srikantansurface\source\repos\sfaspnetsample\sfwebapp\bin\Release\netcoreapp2.0\sfwebapp.deps.json
+C:\Users\Srikantansurface\source\repos\sfaspnetsample\sfwebapp\bin\Release\netcoreapp2.0\sfwebapp.runtimeconfig.json
+C:\Users\Srikantansurface\source\repos\sfaspnetsample\sfwebapp\bin\Release\netcoreapp2.0\sfwebapp.runtimeconfig.dev.json
+C:\Users\Srikantansurface\source\repos\sfaspnetsample\sfwebapp\bin\Release\netcoreapp2.0\sfwebapp.dll
+C:\Users\Srikantansurface\source\repos\sfaspnetsample\sfwebapp\bin\Release\netcoreapp2.0\sfwebapp.pdb
+C:\Users\Srikantansurface\source\repos\sfaspnetsample\sfwebapp\obj\Release\netcoreapp2.0\sfwebapp.csproj.CoreCompileInputs.cache
+C:\Users\Srikantansurface\source\repos\sfaspnetsample\sfwebapp\obj\Release\netcoreapp2.0\sfwebapp.AssemblyInfoInputs.cache
+C:\Users\Srikantansurface\source\repos\sfaspnetsample\sfwebapp\obj\Release\netcoreapp2.0\sfwebapp.AssemblyInfo.cs
+C:\Users\Srikantansurface\source\repos\sfaspnetsample\sfwebapp\obj\Release\netcoreapp2.0\sfwebapp.dll
+C:\Users\Srikantansurface\source\repos\sfaspnetsample\sfwebapp\obj\Release\netcoreapp2.0\sfwebapp.pdb
