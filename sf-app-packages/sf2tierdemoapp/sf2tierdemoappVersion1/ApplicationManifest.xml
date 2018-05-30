@@ -4,7 +4,7 @@
     <ServiceManifestRef ServiceManifestName="sf2tierwebPkg" ServiceManifestVersion="Version1.0"/>
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
-        <RepositoryCredentials AccountName="sfwebacr" Password="i=XfeE9EAL74grAEYGHtXkJjk0ltmJu3" PasswordEncrypted="false"/>
+        <RepositoryCredentials AccountName="sfwebacr" Password="<add password>" PasswordEncrypted="false"/>
       <PortBinding ContainerPort="80" EndpointRef="sf2tierwebTypeEndpoint"/>
       <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
       </ContainerHostPolicies>
@@ -14,7 +14,7 @@
     <ServiceManifestRef ServiceManifestName="sf2tierapiPkg" ServiceManifestVersion="Version1.0"/>
 	<Policies>
   <ContainerHostPolicies CodePackageRef="Code">
-    <RepositoryCredentials AccountName="sfwebacr" Password="i=XfeE9EAL74grAEYGHtXkJjk0ltmJu3" PasswordEncrypted="false"/>
+    <RepositoryCredentials AccountName="sfwebacr" Password="<add password>" PasswordEncrypted="false"/>
 	<PortBinding ContainerPort="80" EndpointRef="sf2tierapiTypeEndpoint"/>
 	 <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
   </ContainerHostPolicies>
