@@ -14,9 +14,9 @@
 	- The Web Application runs on Host port 80 and the REST API on Host port 5002
 	
 # Software Pre requisites to run this sample:
-Git Bash running on a Windows 10 Laptop was used to test the sample in this article.
-Service Fabric SDK and tools for Visual Studio 2017 were installed, as described here. 
-Yeoman generator for Windows was installed to generate the Application and Service manifest files and Package the Solution used in this sample. Details here - https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started
-Azure Service Fabric CLI, as described here
-Docker for Windows on the local dev Machine
+1. Git Bash running on a Windows 10 Laptop was used to test the sample in this article.
+2. Service Fabric SDK and tools for Visual Studio 2017 were installed, as described here. 
+3. Yeoman generator for Windows was installed to generate the Application and Service manifest files and Package the Solution used in this sample. Details here - https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started
+4. Azure Service Fabric CLI, as described here
+5. Docker for Windows on the local dev Machine
 
