@@ -15,8 +15,15 @@
 	
 # Software Pre requisites to run this sample:
 1. Git Bash running on a Windows 10 Laptop was used to test the sample in this article.
-2. Service Fabric SDK and tools for Visual Studio 2017 were installed, as described here. 
-3. Yeoman generator for Windows was installed to generate the Application and Service manifest files and Package the Solution used in this sample. Details here - https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started
-4. Azure Service Fabric CLI, as described here
+2. Service Fabric SDK and tools for Visual Studio 2017 were installed, as described here https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started
+3. Yeoman generator for Windows was installed to generate the Application and Service manifest files and Package the Solution used in this sample. Details here -  https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables
+4. Azure Service Fabric CLI, as described here https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cli
 5. Docker for Windows on the local dev Machine
+
+# Creating the Service Fabric Cluster:
+Use the Azure portal to create a Single Node Type Cluster running Ubuntu. 
+* After the Cluster is created, create a Self-signed certificate (for demo use) on the Current User Store on the local machine. Register the thumbprint of this certificate in the Service Fabric Cluster. These steps are described in detail here https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-portal. 
+* Connect to the cluster by following the steps described here https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-connect-to-secure-cluster. 
+* The Client certificate needs to be in the .pem format. Refer to https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cli to convert a .pfx file to a .pem format
+
 
