@@ -1,10 +1,10 @@
 # Sample Application that showcases Azure Service Fabric Application Rolling upgrade
 
 This sample demonstrates the following features of Azure Service Fabric
-	- Support for deploying containerized Applications with Service Fabric as the orchestrator.
-	- Surface Docker Health status in the overall health report of the Service Fabric Cluster
-	- Service discovery using the inbuilt Service Fabric DNS
-	- Perform Application Rolling upgrades
+* Support for deploying containerized Applications with Service Fabric as the orchestrator.
+* Surface Docker Health status in the overall health report of the Service Fabric Cluster
+* Service discovery using the inbuilt Service Fabric DNS
+* Perform Application Rolling upgrades
 
 # The sample comprises of 2 Applications: (included in this repo)
 	- A Web Application (sfaspnetsample) calls a REST API (sfwebapi) - both are built using ASP.NET Core 2.0 and packaged as Docker Containers for Linux, using Visual Studio 2017. 
@@ -13,6 +13,9 @@ This sample demonstrates the following features of Azure Service Fabric
 	- The Web Application implements Docker Health Check and uses a retry policy with timeouts
 	- The Web Application runs on Host port 80 and the REST API on Host port 5002
 	
+The screenshot below shows the Docker compose file with the Halthcheck configuration used, and the entries in the appsettings.json file of the Web Application where the Service name for the REST API is read, for Service discovery.
+![GitHub Logo](/images/dockerhealth.png)
+
 # Software Pre requisites to run this sample:
 1. Git Bash running on a Windows 10 Laptop was used to test the sample in this article.
 2. Service Fabric SDK and tools for Visual Studio 2017 were installed, as described here https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started
@@ -51,12 +54,29 @@ When Version1 of the Package has to be deployed, rename folder *sf2tierdemoappVe
 # Deploy Version01 of the Application - new deployment to SF Cluster
 Before deploying the Application package, ensure that the Service Fabric Cluster is up and running by launching the SF Explorer. Make changes to the Application and Service Manifest files as necessary (e.g. the sample deploys to a NodeType names 'sfclmain' as a part of placement constraints. This would need to be changed to suit your deployment, etc. etc.)
 
-Connect to the Service fabric cluster from CLI
+1. Connect to the Service fabric cluster from CLI
 sfctl cluster select --endpoint https://dockersfcluster.southindia.cloudapp.azure.com:19080 --pem dockersfclustercert.pem --no-verify
 
-Run the install command
+2. Run the install command
 install.sh   
-Check the Service fabric cluster to view the application deployed. See screenshot below
+3. Check the Service fabric cluster to view the application deployed. See screenshot below
 ![GitHub Logo](/images/webapp_deployed.png)
 
+# Perform Application Rolling Upgrade to Version02
+1. Use the right package folder to run the Rolling upgrade from
+rename folder *sf2tierdemoappVersion2* to *sf2tierdemoapp* 
 
+2. Upload the package and provision the Application type in SF
+sfctl application upload --path ~/source/repos/sf2tierclusterapp/sf2tierdemoapp/sf2tierdemoapp
+sfctl application provision --application-type-build-path sf2tierdemoapp --debug
+ (optional, for cleanup - sfctl store delete --content-path sf2tierdemoapp)
+
+3. Call the Rolling upgrade using the sfctl commands
+sfctl application upgrade --application-name fabric:/sf2tierdemoapp  --application-version Version2.0 --parameters "{}"  --mode Monitored  --health-check-wait-duration  PT0H03M0S --health-check-retry-timeout PT0H01M0S --warning-as-error --failure-action rollback
+
+--warning-as-error -> ensures that when Docker health check returns 'unhealthy', setting this parameter results in the Health of the Service Fabric Application as 'Unhealthy' and shows up as 'error'
+--health-check-wait-duration  -> The upgrade process waits for the duration specified here after the package is deployed. Initially, the SF Application Health shows up as 'unhealthy' when the Docker Health check returns 'unhealthy'. When the Application Start up thread resumes, Docker returns a 'healthy' status, thereby the SF Application cluster status changes to 'healthy'. Once the wait duration elapses, the Upgrade process executes a Roll forward to the next Upgrade Domain. This continues till the Roll forward is completed for all the remaining Upgrade domains.
+
+Hitting the application URL during the upgrade process would return Version01 of the Web page initially, and as and when the first Upgrade Domain has been upgraded, then a combination of Version01 and Version02 of the Web Application pages would be returned. When all of the Upgrade domains are done, then only Version02 of the Web pages would be returned.
+
+The screenshot below shows how the Docker Health status shows up on the Service Fabric Explorer
