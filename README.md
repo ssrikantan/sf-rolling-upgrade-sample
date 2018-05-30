@@ -84,7 +84,6 @@ Hitting the application URL during the upgrade process would return Version01 of
 The screenshot below shows how the Docker Health status shows up on the Service Fabric Explorer
 ![GitHub Logo](/images/sfexplorerstate1.png)
 
-
 # Perform Application Rolling Upgrade to Version03
 1. Use the right package folder to run the Rolling upgrade from
 rename folder *sf2tierdemoappVersion3* to *sf2tierdemoapp* 
@@ -97,12 +96,15 @@ sfctl application provision --application-type-build-path sf2tierdemoapp --debug
 3. Call the Rolling upgrade using the sfctl commands
 sfctl application upgrade --application-name fabric:/sf2tierdemoapp  --application-version Version3.0 --parameters "{}"  --mode Monitored  --health-check-wait-duration  PT0H02M0S --health-check-retry-timeout PT0H01M0S --warning-as-error --failure-action rollback
 
-
---health-check-wait-duration  -> The upgrade process waits for the duration specified here after the package is deployed. 
-
 The SF Application Health continues to show up as 'unhealthy', since the Start up thread in the Web application is set to sleep for an inordinate duration. Once the wait duration elapses, the Upgrade process detects that the upgrade is a failure, and triggers a rollback to the previous versionl which is Version02.
 
 Hitting the application URL during the upgrade process would return only Version02 of the Web page till the Rollback action completes.
-
-The screenshot below shows how Rolling upgrade triggers a Rollback after the Service Health check fails after an unsuccessful upgrade to Version02 in the first upgrade domain
+The screenshot below shows how Rolling upgrade triggers a Rollback after the Service Health check fails after an unsuccessful upgrade to Version03 in the first upgrade domain
 ![GitHub Logo](/images/sfexplorerstate2.png)
+
+# Looking at the Manifest files used in this sample application
+These screenshots are annotated to illustrate certain configurations that have been implemented in this sample solution.
+![GitHub Logo](/images/appmanifest.png)
+
+The screenshot below shows how placement constraints can be specified in the Service Manifest to indicate which Node Type this Service needs to be deployed to in the SF Cluster.
+![GitHub Logo](/images/servicemanifest.png)
