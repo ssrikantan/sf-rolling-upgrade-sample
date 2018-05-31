@@ -12,7 +12,7 @@ The sample comprises of 2 Applications: (included in this repo)
 * The Web Application reads the Service DNS name of the REST API from its appsettings.json file, and uses Service Fabric DNS Service to resolve it at run time.
 * The Web Application runs on Host port 80 and the REST API on Host port 5002
 	
-The screenshot below shows the Docker compose file with the Halthcheck configuration used, and the entries in the appsettings.json file of the Web Application where the Service name for the REST API is read, for Service discovery.
+The screenshot below shows the Docker compose file with the Healthcheck configuration used, and the entries in the appsettings.json file of the Web Application where the Service name for the REST API is read, for Service discovery.
 ![GitHub Logo](/images/dockerhealth.png)
 
 # Software Pre requisites to run this sample:
@@ -29,7 +29,7 @@ Use the Azure portal to create a Single Node Type Cluster running Ubuntu.
 * The Client certificate needs to be in the .pem format. Refer to https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cli to convert a .pfx file to a .pem format
 
 # Creating the Container images for the Web and API Services and uploading them to Azure Container Registry:
-The Visual Studio Solution for each of the Applications have a Docker Compose Package. Build the Solution locally to create the Docker Container images. The Container images that would be created are sfwebapp and sfwebapi. Tag and push them to Azure Container Registry, as Version01 of the Sample Solution. At the end of this step, there would be 2 Container images uploaded to Azure Container Registry(ACR):
+The Visual Studio Solution for each of the Applications have a Docker Compose file. Build the Solution locally to create the Docker Container image. The Container images that would be created are sfwebapp and sfwebapi. Tag and push them to Azure Container Registry, as Version01 of the Sample Solution. At the end of this step, there would be 2 Container images uploaded to Azure Container Registry(ACR):
 sfwebacr.azurecr.io/sfwebapp:web1rev01   (for the Web App)
 sfwebacr.azurecr.io/sfwebapi:web2rev01     (for the API App)
 
@@ -115,7 +115,7 @@ The screenshot below shows how Rolling upgrade triggers a Rollback after the Ser
 
 # Looking at the Manifest files used in this sample application
 These screenshots are annotated to illustrate certain configurations that have been implemented in this sample solution.
-![GitHub Logo](/images/appmanifest.png)
+![GitHub Logo](/images/appmanifest1.png)
 
 The screenshot below shows how placement constraints can be specified in the Service Manifest to indicate which Node Type this Service needs to be deployed to in the SF Cluster.
-![GitHub Logo](/images/servicemanifest.png)
+![GitHub Logo](/images/servicemanifest1.png)
