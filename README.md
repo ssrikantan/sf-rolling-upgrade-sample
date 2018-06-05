@@ -29,7 +29,7 @@ Use the Azure portal to create a Single Node Type Cluster running Ubuntu.
 * The Client certificate needs to be in the .pem format. Refer to https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cli to convert a .pfx file to a .pem format
 * In the Cluster creation wizard, specify ports 80 and 5002 as custom endpoints. The wizard would create Load balancing rules and Health probes that are configured on these ports. These rules are required to access the Web App (port 80) and the API app (port 5002) respectively using the Load balanced IP.
 * After the cluster is created, navigate to the Health probes on the Load Balancer resource and change the default TCP Probe on port 80 and 5002, to Http Probes. For the API App, specify the path to /api/values as shown in the screenshot below. This is to ensure that the Health probe pings the right URL and path to determine the Health check on. This also ensures that during the application rolling upgrade process, when in an Upgrade Domain, an existing application is taken down to upgrade to the next version, the Load Balancer does not route incoming requests to the Nodes in this upgrade domain. 
-![GitHub Logo](/images/customhealthprobe.png)
+![GitHub Logo](/images/customhealthprobe.PNG)
 
 # Creating the Container images for the Web and API Services and uploading them to Azure Container Registry:
 The Visual Studio Solution for each of the Applications have a Docker Compose file. Build the Solution locally to create the Docker Container image. The Container images that would be created are sfwebapp and sfwebapi. Tag and push them to Azure Container Registry, as Version01 of the Sample Solution. At the end of this step, there would be 2 Container images uploaded to Azure Container Registry(ACR):
