@@ -11,7 +11,7 @@
    <CodePackage Name="Code" Version="Version1.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>sfwebacr.azurecr.io/sfwebapp:web1rev01</ImageName>
+            <ImageName>srikantan67/sfwebapp:Version01</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>
