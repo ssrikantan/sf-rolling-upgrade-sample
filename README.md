@@ -1,5 +1,9 @@
 # Sample Application that showcases Azure Service Fabric Application Rolling upgrade
 
+| Demo Name | Description | Target Audienace | Time to setup demo | Development machines supported | Service Fabric Cluster OS supported | Latest confirmed version of SF demo ran on |
+|-----------|-------------|------------------| -------------------|--------------------------------|-----------------------|-----|
+|Application Rolling Upgrade SAMPLE |see description below |Developers - intermediate | 1 hour | Windows 10, Mac | Ubuntu | 6.1.187.1
+
 This sample demonstrates the following features of Azure Service Fabric
 * Support for deploying containerized Applications with Service Fabric as the orchestrator.
 * Surface Docker Health status in the overall health report of the Service Fabric Cluster
