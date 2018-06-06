@@ -13,6 +13,10 @@ The sample comprises of 2 Applications: (included in this repo)
 * The Web Application runs on Host port 80 and the REST API on Host port 5002
 	
 The screenshot below shows the Docker compose file with the Healthcheck configuration used, and the entries in the appsettings.json file of the Web Application where the Service name for the REST API is read, for Service discovery.
+|image |
+|------|
+|![GitHub Logo](/images/dockerhealth.png)|
+
 ![GitHub Logo](/images/dockerhealth.png)
 
 # Software Pre requisites to run this sample:
